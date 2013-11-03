@@ -17,6 +17,8 @@ class Roster
         day.shuffle!
       end
 
+      puts "#{counter} tries for day #{index + 1}"
+
       raise 'check_1' unless check_1
       raise 'check_2' unless check_2(day)
       raise 'check_3' unless check_3(day)
