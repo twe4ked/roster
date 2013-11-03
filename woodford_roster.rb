@@ -24,6 +24,7 @@ class Roster
     end
 
     @days.each_with_index do |day, index|
+      puts
       puts "Day #{index + 1}"
       puts day.info
       puts
