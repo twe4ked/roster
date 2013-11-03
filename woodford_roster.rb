@@ -4,9 +4,9 @@ class Roster
   end
 
   def run!
-    counter = 0
-
     (0..5).each do |index|
+      counter = 0
+
       day = Day.new
       @days << day
 
