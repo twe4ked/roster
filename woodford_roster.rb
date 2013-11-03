@@ -11,7 +11,7 @@ class Roster
       @days << day
 
       while counter < 10_000; counter += 1
-        break if check_2(day) && check_3(day) && check_1
+        break if check_2(day) && check_3(day) && check_1 && check_4
         day.shuffle!
       end
 
@@ -20,6 +20,7 @@ class Roster
       raise 'check_1' unless check_1
       raise 'check_2' unless check_2(day)
       raise 'check_3' unless check_3(day)
+      raise 'check_4' unless check_4
     end
 
     @days.each_with_index do |day, index|
@@ -77,6 +78,20 @@ class Roster
     else
       @days[index - 1].send(shift)
     end
+  end
+
+  GROUPS = [[1, 2]]
+
+  def check_4
+    @days.all? do |day|
+      GROUPS.all? do |group|
+        has_group(day.morning, group) || has_group(day.afternoon, group) || has_group(day.night, group)
+      end
+    end
+  end
+
+  def has_group(people, group)
+    (people & group).sort == group.sort
   end
 end
 
