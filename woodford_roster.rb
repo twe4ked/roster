@@ -1,5 +1,3 @@
-NUMBER_OF_VOLUNTEERS = 11 # or 12
-
 class Roster
   def initialize
     @days = []
@@ -83,6 +81,8 @@ class Roster
 end
 
 class Day
+  NUMBER_OF_VOLUNTEERS = 11 # or 12
+
   def initialize
     @people = (1..NUMBER_OF_VOLUNTEERS).to_a.shuffle
   end
