@@ -29,6 +29,20 @@ class Roster
       puts day.info
       puts
     end
+
+    (1..Day::NUMBER_OF_VOLUNTEERS).each do |person|
+      mornings = 0
+      afternoons = 0
+      nights = 0
+
+      @days.each do |day|
+        mornings += 1 if day.morning.include? person
+        nights += 1 if day.night.include? person
+        afternoons += 1 if day.afternoon.include? person
+      end
+
+      puts "Person #{'%.2d' % person} - mornings: #{mornings}, afternoons: #{afternoons}, nights: #{nights}"
+    end
   end
 
   # 1. nobody has more than 3 morning shifts or night shifts
