@@ -26,9 +26,7 @@ class Roster
 
     @days.each_with_index do |day, index|
       puts "Day #{index + 1}"
-      puts "Morning: #{day.morning.inspect}"
-      puts "Afternoon: #{day.afternoon.inspect}"
-      puts "Night: #{day.night.inspect}"
+      puts day.info
       puts
     end
   end
@@ -103,6 +101,14 @@ class Day
 
   def shuffle!
     @people.shuffle!
+  end
+
+  def info
+    <<-EOF.gsub(/^\s*/, '')
+      Morning: #{self.morning.inspect}
+      Afternoon: #{self.afternoon.inspect}
+      Night: #{self.night.inspect}
+    EOF
   end
 end
 
