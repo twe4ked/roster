@@ -4,7 +4,7 @@ class Roster
   end
 
   def run!
-    (0..5).each do |index|
+    (0..(5 - @days.size)).each do |index|
       counter = 0
 
       day = Day.new
@@ -97,8 +97,9 @@ end
 class Day
   NUMBER_OF_VOLUNTEERS = 11 # or 12
 
-  def initialize
-    @people = (1..NUMBER_OF_VOLUNTEERS).to_a.shuffle
+  def initialize(people = nil)
+    @people = people
+    @people ||= (1..NUMBER_OF_VOLUNTEERS).to_a.shuffle
   end
 
   def morning
