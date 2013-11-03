@@ -27,9 +27,9 @@ class Roster
       puts
       puts "Day #{index + 1}"
       puts day.info
-      puts
     end
 
+    puts
     (1..Day::NUMBER_OF_VOLUNTEERS).each do |person|
       mornings = 0
       afternoons = 0
